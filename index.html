@@ -169,8 +169,9 @@
         }
 
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 2rem;
         }
 
@@ -342,63 +343,68 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
             .hero {
-                padding: 2rem 1rem;
+                padding: 4rem 1.5rem;
             }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
             .hero p {
+                font-size: 1.1rem;
+            }
+            .tagline {
                 font-size: 1rem;
+                padding: 0.5rem 1.2rem;
             }
             .content {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
             }
             .section-title {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
             .services-grid {
-                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             .service-card {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
+                flex-basis: 100%;
+                max-width: 400px;
             }
             .cta-section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1.5rem;
             }
             .cta-section h2 {
-                font-size: 1.8rem;
-            }
-            .cta-section p {
-                font-size: 1rem;
+                font-size: 2rem;
             }
             .button {
-                padding: 0.8rem 2rem;
+                padding: 1rem 2.2rem;
                 font-size: 1rem;
             }
             footer {
-                padding: 1.5rem 0;
-            }
-            .social-links a {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+                padding: 2rem 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.1rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
-            .service-card {
-                padding: 2rem 1.5rem;
+            .section-title {
+                font-size: 1.8rem;
             }
+
+            .cta-section h2 {
+                font-size: 1.7rem;
+            }
+            
         }
     </style>
 </head>
