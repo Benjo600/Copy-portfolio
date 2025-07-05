@@ -1,1 +1,1 @@
-feat: Add info icon and details panel to Ari Hardeen and Tripp Kramer pages
+fix: Remove duplicate style and script blocks from Tripp Kramer rewrite.html
