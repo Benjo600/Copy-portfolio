@@ -277,7 +277,63 @@
         }
     </style>
 </head>
+<style>
+        .portfolio-header {
+            background-color: #f8f5f2;
+            padding: 20px;
+            border-bottom: 1px solid #e0dcd9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .portfolio-header-left {
+            flex-grow: 1;
+        }
+        .portfolio-header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .portfolio-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+        .portfolio-header p {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            color: #2C3E50;
+            margin-bottom: 5px;
+        }
+        .view-original-btn {
+            background-color: #E74C3C;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .view-original-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
 <body>
+    <div class="portfolio-header">
+        <div class="portfolio-header-left">
+            <h2>Target Audience:</h2>
+            <p>Men who believe they are not good enough for attractive women and are stuck in the "nice guy" persona.</p>
+            <h2>Aim of the Page:</h2>
+            <p>To get qualified leads to book a free strategy session to overcome their dating struggles.</p>
+        </div>
+        <div class="portfolio-header-right">
+            <a href="https://example.com/original-page" target="_blank" class="view-original-btn">Click to view the original page</a>
+        </div>
+    </div>
 
     <header class="header">
         <div class="container">
