@@ -278,62 +278,94 @@
     </style>
 </head>
 <style>
-        .portfolio-header {
-            background-color: #f8f5f2;
-            padding: 20px;
-            border-bottom: 1px solid #e0dcd9;
+        /* Info Icon Styles */
+        #info-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-        .portfolio-header-left {
-            flex-grow: 1;
-        }
-        .portfolio-header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .portfolio-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #2C3E50;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
-        .portfolio-header p {
+
+        #info-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        #info-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 320px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+
+        #info-panel.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #info-panel h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        #info-panel p {
             font-family: 'Raleway', sans-serif;
             font-size: 1rem;
-            color: #2C3E50;
-            margin-bottom: 5px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
-        .view-original-btn {
-            background-color: #E74C3C;
+
+        #info-panel .view-original-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
             color: #fff;
             border: none;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            text-align: center;
+            margin-top: 10px;
         }
-        .view-original-btn:hover {
+
+        #info-panel .view-original-btn:hover {
             background-color: #c0392b;
         }
     </style>
 <body>
-    <div class="portfolio-header">
-        <div class="portfolio-header-left">
-            <h2>Target Audience:</h2>
-            <p>Men who believe they are not good enough for attractive women and are stuck in the "nice guy" persona.</p>
-            <h2>Aim of the Page:</h2>
-            <p>To get qualified leads to book a free strategy session to overcome their dating struggles.</p>
-        </div>
-        <div class="portfolio-header-right">
-            <a href="https://example.com/original-page" target="_blank" class="view-original-btn">Click to view the original page</a>
-        </div>
-    </div>
 
     <header class="header">
         <div class="container">
@@ -471,6 +503,24 @@
             <p>You're next.</p>
         </div>
     </footer>
+
+    <div id="info-icon">i</div>
+    <div id="info-panel">
+        <h2>Target Audience:</h2>
+        <p>Men who believe they are not good enough for attractive women and are stuck in the "nice guy" persona.</p>
+        <h2>Aim of the Page:</h2>
+        <p>To get qualified leads to book a free strategy session to overcome their dating struggles.</p>
+        <a href="https://example.com/original-page" target="_blank" class="view-original-btn">View Original</a>
+    </div>
+
+    <script>
+        const infoIcon = document.getElementById('info-icon');
+        const infoPanel = document.getElementById('info-panel');
+
+        infoIcon.addEventListener('click', () => {
+            infoPanel.classList.toggle('show');
+        });
+    </script>
 
 </body>
 </html>

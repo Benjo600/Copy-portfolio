@@ -550,62 +550,94 @@
     </style>
 </head>
 <style>
-        .portfolio-header {
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-bottom: 1px solid #e8e0d0;
+        /* Info Icon Styles */
+        #info-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--muted-gold);
+            color: var(--off-white);
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-        .portfolio-header-left {
-            flex-grow: 1;
-        }
-        .portfolio-header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .portfolio-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #2B2B2B;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
-        .portfolio-header p {
+
+        #info-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        #info-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 320px;
+            background-color: var(--off-white);
+            border: 1px solid var(--soft-beige);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+
+        #info-panel.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #info-panel h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--soft-beige);
+            padding-bottom: 5px;
+        }
+
+        #info-panel p {
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            color: #2B2B2B;
-            margin-bottom: 5px;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
-        .view-original-btn {
-            background-color: #C0A080;
-            color: #F8F8F8;
+
+        #info-panel .view-original-btn {
+            display: inline-block;
+            background-color: var(--muted-gold);
+            color: var(--off-white);
             border: none;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            border-radius: 30px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
+            text-align: center;
+            margin-top: 10px;
         }
-        .view-original-btn:hover {
-            background-color: #2B2B2B;
+
+        #info-panel .view-original-btn:hover {
+            background-color: var(--charcoal);
         }
     </style>
 <body>
-    <div class="portfolio-header">
-        <div class="portfolio-header-left">
-            <h2>Target Audience:</h2>
-            <p>Men who are struggling to get responses from women on dating apps and social media.</p>
-            <h2>Aim of the Page:</h2>
-            <p>To sell a collection of copy-paste text messages that are proven to get responses and lead to dates.</p>
-        </div>
-        <div class="portfolio-header-right">
-            <a href="https://example.com/original-page" target="_blank" class="view-original-btn">Click to view the original page</a>
-        </div>
-    </div>
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -842,7 +874,23 @@
         </div>
     </footer>
 
+    <div id="info-icon">i</div>
+    <div id="info-panel">
+        <h2>Target Audience:</h2>
+        <p>Men who are struggling to get responses from women on dating apps and social media.</p>
+        <h2>Aim of the Page:</h2>
+        <p>To sell a collection of copy-paste text messages that are proven to get responses and lead to dates.</p>
+        <a href="https://example.com/original-page" target="_blank" class="view-original-btn">View Original</a>
+    </div>
+
     <script>
+        const infoIcon = document.getElementById('info-icon');
+        const infoPanel = document.getElementById('info-panel');
+
+        infoIcon.addEventListener('click', () => {
+            infoPanel.classList.toggle('show');
+        });
+
         // Timer countdown
         function updateTimer() {
             const timerValue = document.querySelectorAll('.timer-value');
