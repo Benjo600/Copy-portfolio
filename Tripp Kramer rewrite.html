@@ -3,565 +3,1141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The "Perfect Guy" Myth</title>
+    <title>Tripp Kramer | Premium Dating Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@500;700&display=swap');
-
         :root {
-            --bg-color: #F8F5F2; /* Warm Off-White */
-            --text-color: #2C3E50; /* Deep Charcoal */
-            --accent-color: #E74C3C; /* Muted Terracotta */
-            --card-bg: #FFFFFF;
-            --border-color: #EAEAEA;
+            --dark-bg: #0f0f13;
+            --darker-bg: #0a0a0d;
+            --card-bg: #1a1a23;
+            --gold: #d4af37;
+            --gold-light: #e6c567;
+            --gold-dark: #a88c38;
+            --text-light: #f5f5f7;
+            --text-muted: #a0a0b0;
+            --accent-red: #c53d3d;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Raleway', sans-serif;
-            background: linear-gradient(315deg, rgba(248,245,242,1) 0%, rgba(232,222,214,1) 74%, rgba(225,212,201,1) 100%);
-            color: var(--text-color);
-            line-height: 1.9;
-            font-weight: 500; /* Medium weight */
-            font-size: 1.15rem; /* Adjusted for Readability */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Source Sans Pro', sans-serif; /* Changed font */
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.8; /* Adjusted for new font */
+            overflow-x: hidden;
+            font-weight: 400; /* Use the regular font weight for body */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        strong, b, .font-bold {
+            font-weight: 700;
         }
 
         .container {
-            max-width: 900px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--text-color);
-            letter-spacing: 0.5px;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-        
-        ul, ol {
-            list-style-position: inside;
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        strong {
-            font-weight: 700;
+            padding: 0 20px;
         }
 
         .section {
-            padding: 6rem 0;
-            border-bottom: 1px solid #E0DCD9;
+            padding: 120px 0;
+            position: relative;
         }
 
-        .section:last-child {
-            border-bottom: none;
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
         }
 
-        /* Header */
-        .header {
-            padding: 2rem 0;
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            padding-bottom: 15px;
         }
 
-        .header__logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 42px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Source Sans Pro', sans-serif; /* Changed font */
             font-weight: 700;
+            font-size: 1.1rem;
             text-decoration: none;
-            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--dark-bg);
+        }
+
+        .btn:hover:before {
+            left: 0;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark-bg);
+            border: none;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--dark-bg);
         }
 
         /* Hero Section */
         .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(rgba(10, 10, 13, 0.9), rgba(10, 10, 13, 0.8)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a23"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%230f0f13" stroke-width="1"/></svg>');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            padding: 8rem 0;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero__title {
-            font-size: 4rem;
-            line-height: 1.2;
-            margin-bottom: 2rem;
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .hero__subtitle {
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
             font-size: 1.3rem;
-            max-width: 650px;
-            margin: 0 auto 3rem;
-            color: #596a7b;
-            font-weight: 500;
+            margin-bottom: 40px;
+            color: var(--text-muted);
         }
 
-        /* VSL Placeholder */
-        .vsl-placeholder {
+        .hero .btn {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            padding: 20px 50px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* VSL Section */
+        .vsl-section {
+            background: var(--darker-bg);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .vsl-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .vsl-player {
             position: relative;
             width: 100%;
-            max-width: 700px;
-            margin: 4rem auto 0;
-            aspect-ratio: 16 / 9;
-            background-color: #000;
-            border-radius: 8px;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: linear-gradient(135deg, #1a1a23, #0a0a0d);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .vsl-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            border: 2px solid var(--text-color);
-        }
-        
-        .vsl-placeholder:hover {
-            transform: scale(1.02);
         }
 
-        .vsl-placeholder__play-button {
+        .play-button {
             width: 80px;
             height: 80px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--bg-color);
+            background: rgba(212, 175, 55, 0.8);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-        
-        .vsl-placeholder:hover .vsl-placeholder__play-button {
-            background-color: rgba(231, 76, 60, 0.5);
+            position: relative;
+            transition: var(--transition);
         }
 
-        .vsl-placeholder__play-icon {
+        .play-button:before {
+            content: '';
             width: 0;
             height: 0;
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
-            border-left: 25px solid var(--bg-color);
-            margin-left: 5px;
+            border-left: 25px solid var(--dark-bg);
+            position: relative;
+            left: 5px;
         }
 
-        /* Content Section */
-        .content__title {
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+        .play-button:hover {
+            transform: scale(1.1);
+            background: var(--gold);
+        }
+
+        .vsl-content {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 60px;
+            margin-top: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .vsl-content h2 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
             text-align: center;
+        }
+
+        .vsl-content h3 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--gold-light);
+        }
+
+        .vsl-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 700;
         }
 
         /* Testimonials */
-        .testimonials__title {
-            font-size: 2.8rem;
-            margin-bottom: 4rem;
-            text-align: center;
+        .testimonials {
+            background: linear-gradient(var(--darker-bg), var(--dark-bg));
         }
-        
+
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .testimonial-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 8px;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(44, 62, 80, 0.1);
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-card__image {
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .testimonial-card:before {
+            content: '“'; /* Changed to a proper quote mark */
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem; /* Increased size */
+            color: rgba(212, 175, 55, 0.05); /* Made it more subtle */
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 2rem;
+            color: var(--dark-bg);
+            font-weight: bold;
+        }
+
+        .testimonial-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+
+        .testimonial-info p {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--darker-bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 50px 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-icon {
             width: 80px;
             height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 3px solid var(--accent-color);
-        }
-
-        .testimonial-card__text {
-            font-style: normal;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-card__author {
-            font-weight: 700;
-            color: var(--text-color);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-        }
-
-        .cta__title {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta__list {
-            list-style: none;
-            margin: 2rem auto;
-            max-width: 500px;
-            text-align: left;
-        }
-        
-        .cta__list-item {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .cta__list-item::before {
-            content: '✓';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 1.2rem 3.5rem;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent-color);
-            margin-top: 2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .cta-button:hover {
-            background-color: #c0392b; /* Darker Terracotta */
-            border-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
-        }
-        
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 4rem 0;
-            font-size: 1rem;
-            color: #7f8c8d;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body { font-size: 1.1rem; } /* Adjusted for mobile */
-            .hero__title { font-size: 3rem; }
-            .content__title, .testimonials__title, .cta__title { font-size: 2.2rem; }
-            .section { padding: 4rem 0; }
-        }
-
-        /* Info Icon */
-        #info-icon {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            background-color: var(--accent-color);
-            color: #fff;
-            width: 40px;
-            height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        #info-icon:hover {
-            background-color: #c0392b;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        /* Info Panel */
-        #info-panel {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%) translateX(100%); /* Start off-screen */
-            width: 350px;
-            max-width: 90%;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-            z-index: 1001;
-            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid var(--border-color);
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        #info-panel.open {
-            transform: translateY(-50%) translateX(-20px); /* Slide in */
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #info-panel h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        #info-panel p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .view-original-btn {
-            display: inline-block;
-            background-color: var(--text-color);
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            border: none;
-        }
-
-        .view-original-btn:hover {
-            background-color: #4a627a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
+            margin: 0 auto 25px;
             font-size: 2rem;
-            color: #ccc;
-            cursor: pointer;
-            transition: color 0.3s ease;
+            color: var(--dark-bg);
         }
 
-        .close-button:hover {
-            color: var(--accent-color);
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--gold);
         }
 
-        @media (max-width: 480px) {
-            #info-panel {
-                width: 95%;
-                right: 2.5%;
-                transform: translateY(-50%) translateX(100%);
+        .benefit-card p {
+            color: var(--text-muted);
+        }
+
+        /* Offer Section */
+        .offer-section {
+            background: linear-gradient(rgba(15, 15, 19, 0.9), rgba(15, 15, 19, 0.9)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a23"/><path d="M0 20 L100 20 M0 40 L100 40 M0 60 L100 60 M0 80 L100 80" stroke="%230f0f13" stroke-width="1"/></svg>');
+            background-size: cover;
+            text-align: center;
+        }
+
+        .offer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(26, 26, 35, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px; /* Adjusted spacing */
+            color: var(--gold);
+        }
+        
+        .offer-intro {
+            margin-top: 20px; /* Added spacing */
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .offer-list {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .offer-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .check-icon {
+            min-width: 30px;
+            height: 30px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--dark-bg);
+            font-weight: bold;
+        }
+
+        .offer-item-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--gold-light);
+        }
+
+        .offer-item-content p {
+            color: var(--text-muted);
+        }
+
+        .urgency {
+            background: rgba(197, 61, 61, 0.1);
+            border: 1px solid rgba(197, 61, 61, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .urgency h3 {
+            color: var(--accent-red);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Formatted Urgency List */
+        .urgency-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+            padding: 0;
+        }
+        .urgency-list li {
+            padding-left: 35px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .urgency-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+        .urgency-list h4, .urgency-list .list-title {
+            color: var(--text-light);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .urgency-list p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .urgency-list ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .urgency-list ul li:before {
+             content: '-';
+             color: var(--gold);
+             left: -15px;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-bg);
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+        }
+        
+        #cost-of-waiting .urgency-list li:before {
+            color: var(--accent-red);
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            background: linear-gradient(rgba(26, 26, 35, 0.8), rgba(26, 26, 35, 0.8)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a23"/><circle cx="50" cy="50" r="40" fill="none" stroke="%230f0f13" stroke-width="1"/></svg>');
+            background-size: cover;
+            text-align: center;
+        }
+
+        .guarantee-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(15, 15, 19, 0.7);
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            padding: 60px;
+            backdrop-filter: blur(5px);
+        }
+
+        .guarantee-container h2 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        .guarantee-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        /* About Section - Redesigned */
+        .about-section {
+            background: var(--darker-bg);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        
+        .about-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+        }
+
+        .about-image {
+            min-width: 200px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--dark-bg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+        
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            justify-content: flex-start;
+        }
+        
+        .stat-item {
+            text-align: left;
+        }
+        
+        .stat-item .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        
+        .stat-item .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-warning {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .about-warning h4 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+        }
+        
+        .about-warning p {
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background: #08080a;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
             }
-            #info-panel.open {
-                transform: translateY(-50%) translateX(0);
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .vsl-content, 
+            .offer-container, 
+            .guarantee-container,
+            .about-container {
+                padding: 40px 30px;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .about-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-stats {
+                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .testimonial-grid,
+            .benefits-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-
 </head>
 <body>
-
-    <header class="header">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <a href="#" class="header__logo">Tripp Advice</a>
+            <div class="hero-content">
+                <h1>Why 'Confident' Guys Actually Turn Off Quality Women (And How the T.E.D. Formula Lets Introverts Win Instead)</h1>
+                <a href="#vsl" class="btn btn-gold">WATCH THE VIDEO PRESENTATION</a>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero__title">The "Perfect Guy" Myth That's Keeping You Single Is Complete BS</h1>
-                <p class="hero__subtitle">Everything you've been told about what women want is wrong. Six-pack abs? Wrong. Six-figure salary? Wrong. Being 6 feet tall? Wrong. The proof? That guy you know who's "nothing special" but somehow dates incredible women. You hate him. You study him. You can't figure out his "secret."</p>
-                <div class="vsl-placeholder">
-                    <div class="vsl-placeholder__play-button">
-                        <div class="vsl-placeholder__play-icon"></div>
+    <!-- VSL Section -->
+    <section class="vsl-section" id="vsl">
+        <div class="container">
+            <div class="vsl-container">
+                <div class="vsl-player">
+                    <div class="vsl-overlay">
+                        <div class="play-button"></div>
+                    </div>
+                </div>
+                
+                <div class="vsl-content">
+                    <h2>The Painful Truth About Being Single at 28...</h2>
+                    
+                    <p>You're almost 28 and you've never felt a woman's body against yours in the morning.</p>
+                    <p>Never had someone text you "good morning handsome" or save your contact with a heart emoji.</p>
+                    <p>Your mother keeps asking when you'll bring someone home for dinner.</p>
+                    <p>Your friends stopped inviting you to a couple's dinners because you're the awkward third wheel.</p>
+                    <p><strong class="font-bold">And here's what hurts most: You see average guys with the prettiest girls</strong></p>
+                    <p>Who are broke</p>
+                    <p>And still adored by them</p>
+                    <p>What do they know that you don't?</p>
+                    
+                    <h2>Maybe You've Tried Everything...</h2>
+                    
+                    <h3>Dating apps?</h3>
+                    <p>You send dozens of messages. Maybe 1 in 20 responds. The conversation dies after "hey" and "how's your day?"</p>
+                    
+                    <h3>Bars and clubs?</h3>
+                    <p>You stand there nursing a beer, watching other guys effortlessly chat up women while you're invisible.</p>
+                    
+                    <h3>"Just be yourself"?</h3>
+                    <p>You've been yourself for years. If you were yourself, you wouldn't be reading this.</p>
+                    
+                    <h3>Self-improvement?</h3>
+                    <p>You hit the gym, bought new clothes, and read every dating book. Still nothing.</p>
+                    
+                    <h3>Maybe you've even thought:</h3>
+                    <p>"I'm just not attractive enough" or "Women only want rich guys" or "I'm too old/young/short/awkward."</p>
+                    
+                    <h2>But Here's The Real Problem...</h2>
+                    <p>It's not your looks. It's not your bank account. It's not your height.</p>
+                    <p><strong class="font-bold">You're invisible to women because you don't know how to create genuine attraction.</strong></p>
+                    <p>Most men think attraction is about impressing women.</p>
+                    <p>That's not the case</p>
+                    <p>So they try to be funny, buy drinks, show off their job, or act like someone they're not.</p>
+                    <p>But attraction isn't logical. It's emotional.</p>
+                    <p>While you're trying to impress her with facts about yourself, other guys are making her FEEL special</p>
+                    <p><strong class="font-bold">That's the difference.</strong></p>
+                    <p>And once you understand how to create that feeling - that spark - everything changes.</p>
+                    <p>The same women who used to look right through you will suddenly be drawn to you like a magnet.</p>
+                    <p><strong class="font-bold">Don't believe me? Here's proof:</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Really Changed Everything for These Men</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="profile-img">A</div>
+                        <div class="testimonial-info">
+                            <h3>Ari, 45</h3>
+                            <p>"I thought I was too old and boring"</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"After my divorce, I was convinced it was over. Who wants a quiet 45-year-old guy? Then Tripp showed me I wasn't too old - I was just invisible. His coaching taught me how to actually connect with women instead of trying to impress them. Now I'm with someone amazing who chose me over guys half my age. Turns out, maturity beats a six-pack every time."</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="profile-img">N</div>
+                        <div class="testimonial-info">
+                            <h3>Nico</h3>
+                            <p>"Cancer took my teeth and my confidence"</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Chemo destroyed my voice and my teeth. I'd hide behind my beer, convinced no woman would ever want someone this broken. Tripp's coaching changed everything. He taught me that women don't want perfect - they want real. When I stopped apologizing for my scars and started owning my story, women began approaching me. The guy who used to hide in corners? Now I'm the one everyone wants to talk to."</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="profile-img">S</div>
+                        <div class="testimonial-info">
+                            <h3>Shayne, 26</h3>
+                            <p>"I was desperate and it showed"</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"I used to chase anyone who'd give me attention. It was pathetic. I thought guys like me don't get choices. Tripp's coaching taught me to stop acting desperate and start believing I deserved better. Total game-changer. Now I only date women who actually excite me. Including my current girlfriend who's gorgeous, smart, and completely obsessed with me."</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="content__title">Here's What's Really Happening (And Why It Hurts So Much)</h2>
-                <p>Every Friday night, you watch your friends leave with women while you order another drink and pretend you're "having a good time." The Uber ride home is silent except for the voice in your head asking "What's wrong with me?"</p>
-                <p>Every dating app match that starts with hope and ends with her ghosting you after three messages. You analyze every word you sent, wondering if you were too eager, too boring, or just... not enough.</p>
-                <p>Every time you see some random guy at Starbucks with a gorgeous woman laughing at his jokes - and he's shorter than you, makes less money than you, and looks like he hasn't seen a
-                    gym in years. Yet there she is, completely into him.</p>
-                <p>You lie awake at 2 AM wondering why that could be him but never you.</p>
-                <p>You watch your coworker - the one who complains about having "too many options" - turn down dates while you haven't had a real conversation with a woman in months.</p>
-                <p>You see couples everywhere. Grocery stores, movie theaters, restaurants. Normal guys with amazing women. And you think "How? How did he get her to say yes?"</p>
-                <p><strong>You're starting to believe you're broken.</strong></p>
-                <p>Maybe you're too boring. Too average. Too late to the game.</p>
-                <p>Maybe women just don't want guys like you.</p>
-                <p><strong>You've tried everything:</strong></p>
-                <ul>
-                    <li>Hit the gym (still single)</li>
-                    <li>Made more money (still single)</li>
-                    <li>Bought better clothes (still single)</li>
-                    <li>Watched pickup videos (made it worse)</li>
-                </ul>
-                <p><strong>Each failure confirms what you secretly fear: You're just not the type of guy women actually want.</strong></p>
-                <p>You're tired of being the "nice guy" they friend-zone. Tired of watching inferior men succeed where you fail. Tired of pretending you're okay being alone.</p>
-                <p><strong>The worst part?</strong> Deep down, you're starting to accept that this might just be your life.</p>
+    <!-- Benefits Section -->
+    <section class="section benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>The 3 Shifts That Changed Everything</h2>
             </div>
-        </section>
-
-        <section class="section testimonials">
-            <div class="container">
-                <h2 class="testimonials__title">What Really Changed Everything for These Men</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?q=80&w=2070&auto=format&fit=crop" alt="Testimonial Author Ari" class="testimonial-card__image">
-                        <p class="testimonial-card__text">"After my divorce, I was convinced it was over. I wasn't too old or boring - I was just invisible. Once I learned how to actually connect with women, everything shifted. Now I'm with someone amazing who chose me over guys half my age."</p>
-                        <p class="testimonial-card__author">Ari, 45 - "I thought I was too old and boring"</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop" alt="Testimonial Author Nico" class="testimonial-card__image">
-                        <p class="testimonial-card__text">"Chemo destroyed my confidence. I thought, 'Who could love someone this broken?' But I was wrong. Women don't want perfect - they want real. When I stopped apologizing for my scars and owned my story, they began approaching me. My 'flaws' became my superpowers."</p>
-                        <p class="testimonial-card__author">Nico - "Cancer took my teeth and my confidence"</p>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1887&auto=format&fit=crop" alt="Testimonial Author Shayne" class="testimonial-card__image">
-                        <p class="testimonial-card__text">"I used to chase anyone for attention. It was pathetic. I thought I had to take whatever I could get. Total bullshit. Once I stopped acting desperate and started believing I deserved better, everything changed. Confidence is everything."</p>
-                        <p class="testimonial-card__author">Shayne, 26 - "I was desperate and it showed"</p>
-                    </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">1</div>
+                    <h3>They Got Real Guidance</h3>
+                    <p>Nobody figures this out alone. They found someone who'd been where they wanted to go.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">2</div>
+                    <h3>They Had a Plan</h3>
+                    <p>No more "winging it." They learned what actually works and practiced it until it became natural.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">3</div>
+                    <h3>They Acted Despite the Fear</h3>
+                    <p>Scared? Yes. Nervous? Absolutely. But they did it anyway.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="content__title">The 3 Shifts That Changed Everything</h2>
-                <p><strong>1. They Got Real Guidance</strong> Nobody figures this out alone. They found someone who'd been where they wanted to go.</p>
-                <p><strong>2. They Had a Plan</strong> No more "winging it." They learned what actually works and practiced it until it became natural.</p>
-                <p><strong>3. They Acted Despite the Fear</strong> Scared? Yes. Nervous? Absolutely. But they did it anyway.</p>
-            </div>
-        </section>
-
-        <section class="section cta-section">
-            <div class="container">
-                <h2 class="cta__title">Your Next 60 Minutes Could Change Everything</h2>
-                <p>In your free strategy session, you'll discover:</p>
-                <ul class="cta__list">
-                    <li class="cta__list-item">Why your current approach isn't working (and what to do instead)</li>
-                    <li class="cta__list-item">The specific mindset shift that makes women notice you</li>
-                    <li class="cta__list-item">Your personal roadmap to dating women you actually want</li>
-                </ul>
+    <!-- Offer Section -->
+    <section class="section offer-section" id="book">
+        <div class="container">
+            <div class="offer-container">
+                <h2>Your Next 60 Minutes Could Change Everything</h2>
+                <p class="offer-intro">In your free breakthrough session, you'll discover:</p>
+                
+                <div class="offer-list">
+                    <div class="offer-item">
+                        <div class="check-icon">✓</div>
+                        <div class="offer-item-content">
+                            <h3>The "Invisible Man" mistake</h3>
+                            <p>that makes women look right through you (and the simple fix that makes you instantly more attractive)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-item">
+                        <div class="check-icon">✓</div>
+                        <div class="offer-item-content">
+                            <h3>The T.E.D. Formula</h3>
+                            <p>- My signature 3-step system that turns small talk into deep connection within minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-item">
+                        <div class="check-icon">✓</div>
+                        <div class="offer-item-content">
+                            <h3>Your personal "Attraction Roadmap"</h3>
+                            <p>- a step-by-step plan to attract women you actually want (not just anyone)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-item">
+                        <div class="check-icon">✓</div>
+                        <div class="offer-item-content">
+                            <h3>The confidence secret</h3>
+                            <p>that has nothing to do with looks, money, or height</p>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-item">
+                        <div class="check-icon">✓</div>
+                        <div class="offer-item-content">
+                            <h3>Why "being yourself" is terrible advice</h3>
+                            <p>and what to do instead</p>
+                        </div>
+                    </div>
+                </div>
+                
                 <p>This isn't about tricks or games. It's about becoming the man you were meant to be.</p>
+                
+                <div class="urgency">
+                    <h3>Why This Call Costs Nothing <span style="color: var(--text-muted); font-size: 0.8em;">(Only free for a limited time)</span></h3>
+                    <p>While other coaches might charge $500 for a session like this, I offer it for free for a few simple reasons:</p>
+                    <ul class="urgency-list">
+                        <li>
+                            <div class="list-title">Proven Track Record</div>
+                            <p>I've helped over 2,800 men since 2009, including quiet individuals and late bloomers who thought they had no chance.</p>
+                        </li>
+                        <li>
+                            <div class="list-title">One Decision Changes Everything</div>
+                            <p>Every success story began with a single decision to take action. This is yours.</p>
+                        </li>
+                        <li>
+                            <div class="list-title">Genuine Breakthrough (Not a Sales Pitch)</div>
+                            <p>This is a dedicated session where we will:</p>
+                            <ul>
+                                <li>Figure out exactly what's holding you back.</li>
+                                <li>Provide a clear plan for moving forward.</li>
+                                <li>Determine if coaching is the right fit for your situation.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="list-title">Immediate Value</div>
+                            <p>Even if we don't work together, you'll leave with actionable tools to start transforming your dating life today.</p>
+                        </li>
+                    </ul>
+                    <h4 style="color: var(--text-light); margin-top: 30px;">Limited Availability:</h4>
+                    <p>I can only conduct 12 of these sessions this week. Once these spots are filled, this page may be taken down.</p>
+                </div>
+                
+                <a href="#" class="btn btn-gold">BOOK YOUR FREE BREAKTHROUGH SESSION</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <div class="container" style="text-align: center;">
-                <h2 class="content__title">Why This Call Costs Nothing</h2>
-                <p>This isn't a sales pitch. It's a genuine strategy session where we:</p>
-                <ul style="display: inline-block; text-align: left;">
-                    <li>Figure out exactly what's holding you back</li>
-                    <li>Give you a clear plan to move forward</li>
-                    <li>Show you if coaching is right for your situation</li>
+    <!-- Steps Section -->
+    <section class="section steps-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Happens Next</h2>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Schedule Your Session</h3>
+                    <p>Book your 40-60 minute breakthrough call with me or one of my dating experts</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Identify Obstacles</h3>
+                    <p>We'll identify what's really holding you back in the first 15 minutes</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Your Plan</h3>
+                    <p>You'll get a personalized plan with your very next actionable step</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Take Action</h3>
+                    <p>Walk away feeling like a weight has been lifted - invigorated and ready to take action</p>
+                </div>
+            </div>
+            
+            <!-- Reformatted "Cost of Waiting" Section -->
+            <div id="cost-of-waiting" class="urgency" style="max-width: 800px; margin: 60px auto; background: rgba(197, 61, 61, 0.1); border-color: var(--accent-red);">
+                <h3 style="color: var(--accent-red);">The Cost of Waiting: Don't Miss Your Opportunity</h3>
+                <p>Consider this:</p>
+                <ul class="urgency-list">
+                    <li>
+                        <div class="list-title">The Woman You Deserve</div>
+                        <p>Somewhere, a woman is waiting to meet a man exactly like you.</p>
+                    </li>
+                    <li>
+                        <div class="list-title">The Consequence of Inaction</div>
+                        <p>If you continue to wait, make excuses, or tell yourself "maybe someday," she will find someone else – someone who chose to fight for what they wanted.</p>
+                    </li>
+                    <li>
+                        <div class="list-title">Seize the Moment</div>
+                        <p>Life is happening now. The men who successfully transformed their dating lives all began by making a single, decisive choice.</p>
+                    </li>
                 </ul>
-                <p><strong>Even if we never work together, you'll walk away with tools to start changing your dating life today.</strong></p>
+                <p style="margin-top: 30px;"><strong class="font-bold">Don't let this opportunity pass you by. Make your decision today.</strong></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section" style="text-align: center;">
-            <div class="container">
-                <h2 class="content__title">The Cost of Waiting</h2>
-                <p>Right now, somewhere, a woman is hoping to meet a man exactly like you.</p>
-                <p>But if you keep waiting, keep making excuses, keep telling yourself "maybe someday"...</p>
-                <p>She'll meet someone else. Someone who decided he was worth fighting for.</p>
-                <p><strong>Don't let that happen.</strong></p>
+    <!-- Guarantee Section -->
+    <section class="section guarantee">
+        <div class="container">
+            <div class="guarantee-container">
+                <h2>100% Risk-Free Promise</h2>
+                <p>If you don't walk away from this call with at least 3 specific action steps that could change your dating life, I'll personally refund your time by sending you my $297 "Conversation Confidence" course absolutely free.</p>
+                <p>No questions asked.</p>
+                <a href="#" class="btn btn-gold">CLAIM YOUR SPOT NOW</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section cta-section">
-            <div class="container">
-                <h2 class="cta__title">Book Your Free Strategy Session</h2>
-                <p>What happens next:</p>
-                <ol style="display: inline-block; text-align: left; padding-left: 2rem; margin-bottom: 2rem;">
-                    <li>Schedule your 60-minute call with a dating expert</li>
-                    <li>We'll identify what's really holding you back</li>
-                    <li>You'll get a personalized plan to start attracting the women you want</li>
-                </ol>
-                <p><strong>Life is happening right now.</strong> The men who transformed their dating lives all started with one decision.</p>
-                <p>Make yours today.</p>
-                <a href="#" class="cta-button">BOOK YOUR FREE DATING STRATEGY SESSION</a>
+    <!-- About Section Redesigned -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-grid">
+                    <img src="data:image/jpeg;base64,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" class="about-image" alt="Tripp Kramer">
+                    <div class="about-text">
+                        <h2>About Your Coach, Tripp</h2>
+                        <p>I was once the shy guy stuck in the friend zone. I know the frustration of feeling invisible to the women you want most. That's why I've dedicated my life to this mission.</p>
+                        <p>Since 2009, I've helped thousands of men—including the "hopeless cases"—transform their dating lives using my proven T.E.D. Formula. This isn't about theory; it's about real, repeatable results.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">983K+</div>
+                                <div class="stat-label">Subscribers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">55K+</div>
+                                <div class="stat-label">Weekly Podcast Downloads</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-warning">
+                    <h4>A FINAL WARNING:</h4>
+                    <p>Only 12 spots are available this week. The next opening isn't until next month. Your future self is counting on the decision you make today.</p>
+                </div>
+                
+                <a href="#" class="btn btn-gold" style="margin-top: 40px;">CLAIM YOUR SPOT NOW BEFORE THEY'RE GONE</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>Tripp Advice has helped thousands of men since 2009. Especially the quiet ones, the late bloomers, the guys who thought they'd never have a chance.</p>
-            <p>You're next.</p>
+            <p>© 2023 Tripp Kramer. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <div id="info-icon">i</div>
-    <div id="info-panel">
-        <button id="close-info-panel" class="close-button">&times;</button>
-        <h2>Target Audience:</h2>
-        <p>Men who believe they are not good enough for attractive women and are stuck in the "nice guy" persona.</p>
-        <h2>Aim of the Page:</h2>
-        <p>To get qualified leads to book a free strategy session to overcome their dating struggles.</p>
-        <a href="https://example.com/original-page" target="_blank" class="view-original-btn">View Original Page</a>
-    </div>
-
-    <script>
-        const infoIcon = document.getElementById('info-icon');
-        const infoPanel = document.getElementById('info-panel');
-        const closeButton = document.getElementById('close-info-panel');
-
-        infoIcon.addEventListener('click', () => {
-            infoPanel.classList.add('open');
-        });
-
-        closeButton.addEventListener('click', () => {
-            infoPanel.classList.remove('open');
-        });
-
-        // Close panel when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!infoPanel.contains(event.target) && !infoIcon.contains(event.target) && infoPanel.classList.contains('open')) {
-                infoPanel.classList.remove('open');
-            }
-        });
-    </script>
-
-
-
 </body>
 </html>

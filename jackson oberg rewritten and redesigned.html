@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackson Oberg - Private Attraction Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL STYLES & PREMIUM PALETTE --- */
+        :root {
+            --color-accent: #B5835A; /* Burnished Bronze/Copper */
+            --color-dark-bg: #0D1B2A; /* Midnight Blue */
+            --color-section-bg: #1B263B; /* Deeper Navy */
+            --color-text: #E0E1DD; /* Crisp Off-White/Silver */
+            --color-text-muted: #A9B4C2; /* Muted Blue-Gray */
+            --color-danger: #C84630; /* Terracotta Red for urgency */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-dark-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            font-weight: 400; /* Increased font weight for better readability */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- UTILITY & SHARED CLASSES --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .container-narrow {
+            max-width: 850px;
+        }
+
+        .section {
+            padding: 120px 0;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: #fff;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 3.2rem;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        h2 .highlight {
+            color: var(--color-accent);
+        }
+        
+        p {
+            font-size: 1.15rem; /* Increased base paragraph size */
+            letter-spacing: 0.3px;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-dark-bg);
+            border: 2px solid var(--color-accent);
+            padding: 18px 45px;
+            font-size: 1rem;
+            font-weight: 700; /* Bold CTA text */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- HERO SECTION WITH NEW IMAGE --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background-image: linear-gradient(rgba(13, 27, 42, 0.88), rgba(13, 27, 42, 0.98)), url(https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .hero .pre-headline {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            max-width: 900px;
+            color: #fff;
+        }
+
+        .hero .sub-headline {
+            font-size: 1.25rem;
+            max-width: 750px;
+            color: var(--color-text);
+            margin-bottom: 40px;
+        }
+
+        /* --- PROBLEM AGITATION SECTION --- */
+        .problem-section {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+        
+        .problem-section .brutal-truth {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .problem-section .turn-on-headline {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--color-accent);
+        }
+
+        /* --- BULLET POINTS SECTION (Behind Closed Doors) --- */
+        .bullets-section {
+            background-color: var(--color-dark-bg);
+        }
+        
+        .bullets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+            max-width: 950px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: center;
+            background: rgba(27, 38, 59, 0.3);
+            padding: 20px;
+            border-left: 3px solid var(--color-accent);
+            transition: all 0.3s ease;
+        }
+
+        .bullet-item:hover {
+            transform: translateX(10px);
+            background: rgba(27, 38, 59, 0.6);
+        }
+        
+        .craving-headline {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 100px;
+            font-family: var(--font-heading);
+            color: #fff;
+        }
+
+        /* --- RESTRUCTURED FAILURE & SOLUTION SECTIONS --- */
+        .failure-section, .solution-section {
+            text-align: center;
+        }
+        .failure-section {
+            background-color: var(--color-section-bg);
+        }
+        .solution-section {
+             background-color: var(--color-dark-bg);
+        }
+        
+        .failure-section h3, .solution-section h3 {
+             font-size: 2.5rem;
+             margin-bottom: 25px;
+        }
+        
+        .stacked-list {
+             list-style: none;
+             padding-left: 0;
+             max-width: 700px;
+             margin: 40px auto 0;
+             text-align: left;
+        }
+        
+        .stacked-list li {
+            padding: 12px 0;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.1rem;
+        }
+        
+        .failure-section .stacked-list li::before {
+            content: '✕';
+            color: var(--color-danger);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .solution-section .stacked-list li::before {
+             content: '✓';
+             color: var(--color-accent);
+             position: absolute;
+             left: 0;
+             top: 12px;
+             font-weight: bold;
+             font-size: 1.2rem;
+        }
+
+        /* --- THE OBERG METHOD SECTION --- */
+        .method-section {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+        
+        .method-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .phase-card {
+            background: var(--color-dark-bg);
+            padding: 40px;
+            border: 1px solid transparent;
+            border-bottom: 4px solid var(--color-accent);
+            transition: all 0.4s ease;
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-15px);
+            border: 1px solid rgba(181, 131, 90, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .phase-card .phase-number {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+
+        .phase-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+        
+        .phase-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .phase-card ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+        }
+        
+        .phase-card ul li::before {
+            content: '→';
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .phase-card:hover ul li::before {
+            transform: translateX(5px);
+        }
+        
+        .method-cta {
+            margin-top: 80px;
+        }
+
+        /* --- HARD TRUTH SECTION --- */
+        .hard-truth-section {
+            background-color: var(--color-dark-bg);
+        }
+        .hard-truth-section .container {
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid rgba(181, 131, 90, 0.2);
+            padding: 60px;
+        }
+        
+        .hard-truth-section p {
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+        
+        .hard-truth-section p strong {
+             color: var(--color-accent);
+             font-weight: 700;
+        }
+        
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            background-color: var(--color-section-bg);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--color-dark-bg);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--color-accent);
+            padding-left: 25px;
+            color: var(--color-text-muted);
+            flex-grow: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(181, 131, 90, 0.2);
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 2px solid var(--color-accent);
+            object-fit: cover;
+        }
+        
+        .author-info strong {
+            display: block;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .author-info span {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- URGENCY SECTION --- */
+        .urgency-section {
+            background-color: var(--color-dark-bg);
+        }
+        
+        .urgency-section h2 {
+            color: var(--color-danger);
+        }
+        
+        .urgency-section p {
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+        }
+        
+        /* --- NEXT STEPS SECTION --- */
+        .next-steps-section {
+            background-color: var(--color-section-bg);
+        }
+        
+        .next-steps-section ol {
+            list-style: none;
+            counter-reset: steps-counter;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .next-steps-section li {
+            counter-increment: steps-counter;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 10px 0 10px 80px;
+            border-bottom: 1px solid rgba(181, 131, 90, 0.1);
+        }
+        
+        .next-steps-section li:last-child {
+            border-bottom: none;
+        }
+
+        .next-steps-section li::before {
+            content: "0" counter(steps-counter);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-accent);
+            border: 1px solid rgba(181, 131, 90, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .next-steps-section li:hover::before {
+            background-color: var(--color-accent);
+            color: var(--color-dark-bg);
+            border-color: var(--color-accent);
+        }
+        
+        .next-steps-section .disclaimer {
+            text-align: center;
+            margin-top: 60px;
+            font-style: italic;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        /* --- CHOICE / FINAL CTA SECTION --- */
+        .choice-section {
+            background-color: var(--color-dark-bg);
+            text-align: center;
+        }
+
+        .choice-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .choice-card {
+            border: 1px solid #333;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .choice-card:hover {
+            border-color: var(--color-accent);
+            background: rgba(181, 131, 90, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .choice-card strong {
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .choice-card.bad-option strong {
+            color: var(--color-danger);
+        }
+
+        .choice-card.bad-option:hover {
+             border-color: var(--color-danger);
+        }
+        
+        .final-cta {
+             text-align: center;
+             padding: 100px 0;
+             background: var(--color-section-bg);
+        }
+        
+        .final-cta p {
+            margin-top: 20px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--color-dark-bg);
+        }
+
+        .footer .name {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: #fff;
+        }
+        
+        .footer .title {
+            margin-bottom: 25px;
+        }
+        
+        .footer .quote {
+            font-style: italic;
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .testimonials-grid, .method-phases, .choice-options {
+                grid-template-columns: 1fr;
+            }
+             .method-phases, .testimonials-grid {
+                 gap: 30px;
+             }
+        }
+        
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero .sub-headline {
+                font-size: 1.1rem;
+            }
+
+            .bullets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bullet-item:hover {
+                transform: translateX(0);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <p class="pre-headline">🚨 ATTENTION: Men making over $200k a year and want to reignite your relationship</p>
+        <h1>Your 8-Figure net worth means nothing to your girl</h1>
+        <p class="sub-headline">You've crushed every goal, built an empire and dominated your industry. But she's grown cold, distant, and increasingly uninterested in you. And deep down, you know the brutal truth: Everything that made you successful is making you sexually invisible</p>
+    </header>
+
+    <main>
+
+        <!-- PROBLEM AGITATION SECTION -->
+        <section class="section problem-section">
+            <div class="container container-narrow">
+                <p class="brutal-truth">The Brutal Truth High-Achieving Men Refuse to Accept</p>
+                <p>You've been sold a lie. That your Lamborghini, your C-suite title, your seven-figure income would automatically make you irresistible. It doesn't. While you were building your fortune, you missed the one skill that actually matters to her:</p>
+                <h3 class="turn-on-headline">How to turn her on.</h3>
+            </div>
+        </section>
+
+        <!-- BULLET POINTS SECTION -->
+        <section class="section bullets-section">
+            <div class="container">
+                <h2>Here's What's <span class="highlight">Really</span> Happening Behind Closed Doors</h2>
+                <div class="bullets-grid">
+                    <div class="bullet-item">Your Rolex doesn't create desire</div>
+                    <div class="bullet-item">Your Manhattan penthouse doesn't build attraction</div>
+                    <div class="bullet-item">Your IPO and board seats don't make her feel feminine</div>
+                    <div class="bullet-item">Your spreadsheets and strategy decks don't speak to her emotions</div>
+                </div>
+                <h3 class="craving-headline">She's Craving Something You've Never Learned</h3>
+                <div class="bullets-grid" style="margin-top: 40px;">
+                    <div class="bullet-item">Masculine presence that commands without demanding</div>
+                    <div class="bullet-item">Emotional depth that goes beyond surface-level conversations</div>
+                    <div class="bullet-item">Authentic confidence that doesn't need validation</div>
+                    <div class="bullet-item">Leadership that makes her feel safe to surrender</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY IT FAILS SECTION -->
+        <section class="section failure-section">
+            <div class="container container-narrow">
+                <h3>Why Everything You've Tried Has Failed</h3>
+                <p>You're treating her like a business problem to solve. But she's not a deal to close or a metric to optimize. She's a woman who needs to feel your strength, not just see your success. Here's exactly what happens when you apply your boardroom tactics to your bedroom:</p>
+                <ul class="stacked-list">
+                    <li>Over-communicating when she needs you to lead</li>
+                    <li>Logical problem-solving when she needs emotional connection</li>
+                    <li>Trying harder when she needs you to be effortless</li>
+                    <li>Asking "what's wrong?" when she wants you to already know</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- WHY THIS WORKS SECTION -->
+        <section class="section solution-section">
+            <div class="container container-narrow">
+                 <h3>Why This Approach Works When Everything Else Fails</h3>
+                 <p>Most dating advice is built for average men with average problems. This system is designed specifically for high-achievers who need precision, not platitudes. The men I work with:</p>
+                 <ul class="stacked-list">
+                    <li>Have already tried the usual relationship advice</li>
+                    <li>Don't have time for trial-and-error approaches</li>
+                    <li>Need results that match their standards in every other area</li>
+                    <li>Understand that excellence requires expert guidance</li>
+                </ul>
+                 <p style="margin-top: 40px;">You're not looking for generic solutions. You need a strategic approach that works at your level.</p>
+            </div>
+        </section>
+
+
+        <!-- THE OBERG METHOD -->
+        <section class="section method-section">
+            <div class="container">
+                <h2>The Oberg Method: <span class="highlight">Elite-Level Attraction</span></h2>
+                <div class="method-phases">
+                    <div class="phase-card">
+                        <div class="phase-number">Phase 1</div>
+                        <h3>Diagnosis</h3>
+                        <ul>
+                            <li>Identify exactly why she's pulling away</li>
+                            <li>Uncover your specific emotional blind spots</li>
+                            <li>Map her attraction triggers you've been missing</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-number">Phase 2</div>
+                        <h3>Recalibration</h3>
+                        <ul>
+                            <li>Develop unshakeable masculine presence</li>
+                            <li>Master emotional leadership without words</li>
+                            <li>Create desire through strategic distance</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <div class="phase-number">Phase 3</div>
+                        <h3>Dominance</h3>
+                        <ul>
+                            <li>Become the man she can't resist</li>
+                            <li>Build lasting attraction systems</li>
+                            <li>Lead the relationship with effortless confidence</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="method-cta">
+                    <a href="#final-cta" class="cta-button">SECURE YOUR SPOT - LIMITED AVAILABILITY</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- HARD TRUTH SECTION -->
+        <section class="section hard-truth-section">
+            <div class="container">
+                 <h2>The Hard Truth About Where You Are Right Now</h2>
+                 <p>You're losing her. Not because you're not good enough. But because you're approaching this like everything else in your life - <strong>trying to logic your way to her heart.</strong> She doesn't want another provider. She wants a man who gets it. <strong>And right now, you don't.</strong></p>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="section testimonials-section">
+            <div class="container">
+                <h2>Real Results from <span class="highlight">Real Men</span></h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <blockquote>"Within 2 weeks, my wife was initiating intimacy again. Jackson showed me the difference between being a provider and being a leader."</blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Headshot of David, a satisfied client who is a Tech CEO">
+                            <div class="author-info">
+                                <strong>David, Tech CEO</strong>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="testimonial-card">
+                        <blockquote>"I thought my success would be enough. Jackson taught me that presence trumps presents every time."</blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Headshot of Marcus, a satisfied client who is an Investment Banker">
+                            <div class="author-info">
+                                <strong>Marcus, Investment Banker</strong>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="testimonial-card">
+                        <blockquote>"She went from cold and distant to pursuing me again. The shift was incredible."</blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Headshot of Ryan, a satisfied client who owns a Medical Practice">
+                            <div class="author-info">
+                                <strong>Ryan, Medical Practice Owner</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- URGENCY SECTION -->
+        <section class="section urgency-section">
+             <div class="container container-narrow">
+                <h2>The Cost of Waiting</h2>
+                <p>Every day you hesitate, the gap widens. Every day you rely on your success to do the work your masculinity should be doing. Every day you hope she'll come back to the man she's already walking away from.</p>
+                <a href="#final-cta" class="cta-button" style="background: var(--color-danger); border-color: var(--color-danger); color: #fff;">The window is closing. Act now.</a>
+             </div>
+        </section>
+        
+        <!-- NEXT STEPS SECTION -->
+        <section class="section next-steps-section">
+             <div class="container">
+                <h2>Here's What <span class="highlight">Happens Next</span></h2>
+                <p style="text-align:center; max-width: 750px; margin: 0 auto 70px;">If you're ready to stop losing in the one area that matters most:</p>
+                <ol>
+                    <li>Book your private consultation (link below)</li>
+                    <li>Answer a few strategic questions about your situation</li>
+                    <li>If it's a fit, we'll talk - just you and me</li>
+                    <li>I'll show you the exact system to rebuild her attraction</li>
+                </ol>
+                <p class="disclaimer">This isn't for men who want to talk about their feelings. This is for men who want to win.</p>
+             </div>
+        </section>
+        
+        <!-- CHOICE / FINAL CTA -->
+        <section class="section choice-section">
+            <div class="container">
+                <h2>The <span class="highlight">Choice</span> Is Yours</h2>
+                <div class="choice-options">
+                    <div class="choice-card bad-option">
+                        <strong>Option 1:</strong>
+                        <p>Keep doing what you're doing. Keep watching her pull away. Keep hoping your next promotion will somehow save your relationship.</p>
+                    </div>
+                    <div class="choice-card">
+                         <strong>Option 2:</strong>
+                         <p>Learn the skills that actually create lasting attraction. Master the emotional leadership that turns her back into the woman who couldn't keep her hands off you.</p>
+                    </div>
+                     <div class="choice-card bad-option">
+                        <strong>Option 3:</strong>
+                        <p>Do nothing. Watch her find a man who understands what you don't.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="final-cta" id="final-cta">
+            <a href="#" class="cta-button" style="padding: 22px 65px; font-size: 1.2rem;">BOOK YOUR PRIVATE CONSULTATION NOW</a>
+            <p>Limited availability for serious men only.</p>
+        </section>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="name">Jackson Oberg</div>
+            <div class="title">Private Attraction Strategist for Elite Men</div>
+            <div class="quote">"Your bank account got you the meeting. Your presence gets you the woman."</div>
+        </div>
+    </footer>
+
+</body>
+</html>

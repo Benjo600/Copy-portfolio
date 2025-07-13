@@ -3,955 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Mastery | Ari Hardeen</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ari Hardeen - The 67 Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --charcoal: #2B2B2B;
-            --off-white: #F8F8F8;
-            --muted-gold: #C0A080;
-            --soft-beige: #E8E0D0;
-            --gold-accent: #D4AF37;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --bg-dark: #0A192F;
+            --bg-medium: #112240;
+            --accent-blue: #3399FF;
+            --accent-red: #FF4C4C;
+            --text-primary: #CCD6F6;
+            --text-secondary: #8892B0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--off-white);
-            color: var(--charcoal);
-            line-height: 1.6;
-            overflow-x: hidden;
+
+        html {
+            scroll-behavior: smooth;
         }
-        
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--off-white);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--soft-beige);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(136, 146, 176, 0.2);
         }
         
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        section:last-of-type {
+            border-bottom: none;
         }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
+
+        .section-medium-gradient {
+            background: linear-gradient(180deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
             font-weight: 700;
-            font-size: 28px;
-            color: var(--charcoal);
-            letter-spacing: 1px;
-        }
-        
-        .logo span {
-            color: var(--muted-gold);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 500;
-            font-size: 16px;
-            position: relative;
-            transition: var(--transition);
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--muted-gold);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .cta-button {
-            background-color: var(--muted-gold);
-            color: var(--off-white);
-            border: none;
-            padding: 12px 28px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 4px 15px rgba(192, 160, 128, 0.3);
-        }
-        
-        .cta-button:hover {
-            background-color: var(--charcoal);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(192, 160, 128, 0.4);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(248, 248, 248, 0.9) 0%, rgba(232, 224, 208, 0.7) 100%), url('https://images.unsplash.com/photo-1527689638836-411945a2b1a1?ixlib=rb-4.0.3') no-repeat center center/cover;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
             line-height: 1.2;
-            color: var(--charcoal);
+            text-align: center;
         }
         
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            color: var(--charcoal);
-            max-width: 700px;
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+        
+        h2 .accent {
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        p, li {
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-        }
-        
-        .highlight {
-            background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(192, 160, 128, 0.3) 50%);
-            font-weight: 600;
-        }
-        
-        .hero-cta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .hero-cta .cta-button {
-            padding: 16px 40px;
-            font-size: 18px;
-        }
-        
-        .secondary-button {
-            background-color: transparent;
-            border: 2px solid var(--muted-gold);
-            color: var(--charcoal);
-        }
-        
-        /* Problem Section */
-        .problem-section {
-            padding: 100px 0;
-            background-color: var(--off-white);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        .section-header h2:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--muted-gold);
-        }
-        
-        .problem-container {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .problem-content {
-            flex: 1;
-        }
-        
-        .problem-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: var(--charcoal);
-            font-weight: 600;
-        }
-        
-        .problem-list {
-            list-style-type: none;
-            margin-bottom: 40px;
-        }
-        
-        .problem-list li {
-            margin-bottom: 20px;
-            padding-left: 35px;
-            position: relative;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
         
-        .problem-list li:before {
-            content: '✗';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #e74c3c;
-            font-size: 1.3rem;
+        p {
+             margin-bottom: 20px;
+             text-align: center;
         }
         
-        .insight-box {
-            background-color: var(--soft-beige);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid var(--muted-gold);
-            margin-top: 40px;
-        }
-        
-        .insight-box p {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--charcoal);
-            text-align: center;
-            font-weight: 500;
-        }
-        
-        /* Solution Section */
-        .solution-section {
-            padding: 100px 0;
-            background-color: var(--soft-beige);
-        }
-        
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .solution-card {
-            background-color: var(--off-white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-        
-        .solution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        
-        .card-header {
-            background-color: var(--charcoal);
-            color: var(--off-white);
-            padding: 25px;
-            text-align: center;
-        }
-        
-        .card-body {
-            padding: 30px;
-        }
-        
-        .card-body ul {
-            list-style-type: none;
-        }
-        
-        .card-body ul li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .card-body ul li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--muted-gold);
-            font-weight: bold;
-        }
-        
-        /* Testimonials */
-        .testimonials-section {
-            padding: 100px 0;
-            background-color: var(--off-white);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial-card {
-            background-color: var(--soft-beige);
-            padding: 30px;
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-        }
-        
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            font-family: 'Playfair Display', serif;
-            color: rgba(192, 160, 128, 0.3);
-            line-height: 1;
-        }
-        
-        .testimonial-content {
-            margin-top: 30px;
-            font-style: italic;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .testimonial-author {
-            margin-top: 20px;
+        strong {
+            color: var(--text-primary);
             font-weight: 600;
-            color: var(--charcoal);
         }
-        
-        /* Pricing Section */
-        .pricing-section {
-            padding: 100px 0;
-            background-color: var(--soft-beige);
-            text-align: center;
-        }
-        
-        .pricing-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .price-box {
-            background-color: var(--off-white);
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(192, 160, 128, 0.3);
-        }
-        
-        .price-tag {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--muted-gold);
-            margin: 20px 0;
-        }
-        
-        .price-comparison {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .comparison-item {
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #060d17 100%);
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
         }
         
-        .guarantee-box {
-            background-color: var(--charcoal);
-            color: var(--off-white);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 40px 0;
+        .hero .sub-headline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
         }
         
-        /* Urgency Section */
-        .urgency-section {
-            padding: 80px 0;
-            background-color: var(--charcoal);
-            color: var(--off-white);
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border: 2px solid var(--accent-blue);
+            padding: 18px 45px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(51, 153, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px 0 rgba(51, 153, 255, 0.4);
+        }
+        
+        /* General List Styles */
+        .styled-list {
+            list-style: none;
+            margin-top: 30px;
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .styled-list li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .styled-list li::before {
+            content: '✓';
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .sabotage-list {
+            list-style: none;
+            margin-top: 20px;
+            max-width: 650px;
+        }
+        .sabotage-list li {
+            background-color: rgba(255, 76, 76, 0.05);
+            border-left: 3px solid var(--accent-red);
+            padding: 15px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        /* Story Section */
+        .story-section .story-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-blue);
+            background-color: var(--bg-medium);
+            margin: 0 auto 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-family: var(--font-heading);
+            color: var(--accent-blue);
+        }
+
+        /* How It Works & Features */
+        .step-card {
+            background-color: var(--bg-medium);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            border-top: 4px solid var(--accent-blue);
+            transition: all 0.3s ease;
+            margin: 30px auto;
+            max-width: 650px;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .step-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonial-card {
+            background-color: var(--bg-medium);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin: 30px auto;
+        }
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
             text-align: center;
         }
-        
-        .urgency-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .timer-box {
-            background-color: rgba(248, 248, 248, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 80px;
-        }
-        
-        .timer-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--muted-gold);
-        }
-        
-        .timer-label {
-            font-size: 0.9rem;
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent-blue);
+            text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 1rem;
         }
-        
-        .choice-cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-            flex-wrap: wrap;
+
+        /* Bonus Section */
+        .bonus-card {
+            border: 1px solid rgba(51, 153, 255, 0.3);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: var(--bg-dark);
+            margin: 30px auto;
         }
-        
-        .choice-card {
-            background-color: var(--off-white);
-            color: var(--charcoal);
-            padding: 40px 30px;
-            border-radius: 10px;
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-        
-        .choice-card:hover {
-            transform: scale(1.03);
-        }
-        
-        .bad-choice {
-            border-top: 5px solid #e74c3c;
-        }
-        
-        .good-choice {
-            border-top: 5px solid var(--muted-gold);
-        }
-        
-        .choice-card h3 {
+        .bonus-card .bonus-tag {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
             margin-bottom: 20px;
-            font-size: 1.5rem;
+            font-size: 0.9rem;
         }
         
+        /* Price Section */
+        .price-box {
+            background: var(--bg-medium);
+            border: 1px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 50px;
+            margin: 50px auto 0 auto;
+            text-align: center;
+            box-shadow: 0 0 35px rgba(51, 153, 255, 0.15);
+        }
+        .price {
+            font-size: 5rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin: 10px 0;
+            line-height: 1;
+        }
+        .price s {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            margin-right: 15px;
+            font-weight: 400;
+        }
+        
+        /* Guarantee Section */
+        .guarantee-box {
+            border: 2px dashed var(--accent-blue);
+            border-radius: 8px;
+            padding: 40px;
+            margin: 50px auto 0 auto;
+            text-align: center;
+            background: rgba(51, 153, 255, 0.05);
+        }
+
+        /* Urgency / Warning */
+        .warning-box {
+            background-color: rgba(255, 76, 76, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .warning-box h3 {
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: var(--font-body);
+            font-weight: 700;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin: 40px auto;
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 25px;
+            text-align: left;
+        }
+        .faq-item .question {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        .faq-item .answer {
+            color: var(--text-secondary);
+            margin: 0;
+            text-align: left;
+        }
+
         /* Footer */
         footer {
-            background-color: var(--charcoal);
-            color: var(--soft-beige);
-            padding: 40px 0;
+            background: var(--bg-medium);
+            padding: 80px 0;
             text-align: center;
         }
-        
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
+        footer .final-pitch {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin: 0 auto 30px auto;
         }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-        }
-        
-        .footer-links a {
-            color: var(--soft-beige);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--muted-gold);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .problem-container {
-                flex-direction: column;
-            }
-        }
-        
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section-header h2 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
-
-
-    <style>
-        /* Info Icon Styles */
-        #info-icon {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--muted-gold);
-            color: var(--off-white);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            cursor: pointer;
-            z-index: 1001;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        #info-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        #info-panel {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 320px;
-            background-color: var(--off-white);
-            border: 1px solid var(--soft-beige);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-        }
-
-        #info-panel.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        #info-panel h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--soft-beige);
-            padding-bottom: 5px;
-        }
-
-        #info-panel p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: var(--charcoal);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        #info-panel .view-original-btn {
-            display: inline-block;
-            background-color: var(--muted-gold);
-            color: var(--off-white);
-            border: none;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        #info-panel .view-original-btn:hover {
-            background-color: var(--charcoal);
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2.25rem; }
+            section { padding: 60px 0; }
+            .hero { padding: 80px 20px; }
+            p, li { font-size: 1rem; }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">Text<span>Mastery</span></div>
-            <nav class="nav-links">
-                <a href="#problem">The Problem</a>
-                <a href="#solution">The Solution</a>
-                <a href="#results">Results</a>
-                <a href="#pricing">Pricing</a>
-            </nav>
-            <button class="cta-button">Get Started</button>
+
+    <header class="hero">
+        <div class="container">
+            <h1>She's Already Decided You're Not Worth Her Time</h1>
+            <p class="sub-headline">You send a text and... nothing. You see her online, but your message sits there, ignored. This isn't about looks or money. It's about what you say.</p>
+            <a href="#offer-section" class="cta-button">Fix My Texting Game Now</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>The Real Reason She's Not Texting You Back</h1>
-            <p>You send her a text and... nothing. Radio silence. Meanwhile, she's instantly replying to other guys while leaving you on read.</p>
-            <p><span class="highlight">It's not that you're unattractive. It's not that she's not interested.</span> The problem is what you're actually saying.</p>
-            <div class="hero-cta">
-                <button class="cta-button">Get Instant Access - Just $7</button>
-                <button class="cta-button secondary-button">How It Works</button>
+    <main>
+        <section class="section-dark">
+            <div class="container">
+                <h2>The Brutal <span class="accent">Truth</span> About Why She's Not Responding</h2>
+                <p>Right now, while you're reading this, she's having actual conversations with men who understand something you don't: <strong>Women don't respond to messages. They respond to feelings.</strong></p>
+                <p>She gets 47 messages from guys just like you daily. 44 of them say the exact same boring things. 3 of them know the secret to making her WANT to respond. Guess which ones get her phone number?</p>
+                <p><strong>You're not losing to better-looking guys. You're losing to guys who know what to say.</strong></p>
+                
+                <h3 style="margin-top: 60px;">Why Your Current Approach Is Sabotaging Your Dating Life</h3>
+                <h4>The "Nice Guy" Death Trap:</h4>
+                <ul class="sabotage-list">
+                    <li>"Hey beautiful" = DELETED (She's heard it 1,000 times)</li>
+                    <li>"How's your day going?" = IGNORED (Shows zero personality)</li>
+                    <li>"You're gorgeous" = BLOCKED (Sounds like every other desperate guy)</li>
+                </ul>
+                <p>Here's what's really happening in her mind: "Another guy telling me I'm pretty. Delete. Another guy asking about my day. Delete. Another guy who has nothing interesting to say. Delete."</p>
+                <p>The devastating reality: <strong>Every generic message you send is training her to see you as forgettable.</strong></p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Problem Section -->
-    <section id="problem" class="problem-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Here's What's Really Happening</h2>
-                <p>While you're stuck in texting purgatory, other men are making moves</p>
-            </div>
-            
-            <div class="problem-container">
-                <div class="problem-content">
-                    <h3>The Texting Reality You Need To Face</h3>
-                    <ul class="problem-list">
-                        <li>While you're overthinking your next message, they're getting her phone number</li>
-                        <li>While you're wondering if she's interested, they're setting up dates</li>
-                        <li>While you're being left on read, they're building real connections</li>
+        <section class="section-medium-gradient">
+            <div class="container">
+                <h2>What The Top <span class="accent">3%</span> of Men Know (That You Don't)</h2>
+                <p>After helping over 3,000 men improve their dating lives, I discovered something that changed everything: The guys getting dates aren't using pickup lines. They're using psychology.</p>
+                <div style="text-align: center;">
+                    <ul class="styled-list">
+                        <li>How to trigger curiosity instead of compliments</li>
+                        <li>The exact words that make her think "This guy is different"</li>
+                        <li>How to create attraction through text (not kill it)</li>
+                        <li>The perfect timing to transition from messaging to meeting</li>
                     </ul>
-                    
-                    <p>She gets dozens of messages from guys every day. Most are boring. Most are predictable. Most get ignored.</p>
-                    
-                    <div class="insight-box">
-                        <p>The guys who get responses aren't necessarily better looking or richer. They just know how to write messages that actually work.</p>
-                    </div>
                 </div>
+                <p style="margin-top: 30px;">While you're overthinking your next message, they're already planning the second date.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solution Section -->
-    <section id="solution" class="solution-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Psychology-Backed Solution</h2>
-                <p>67 Copy-Paste Text Messages That Actually Work</p>
+        <section class="story-section">
+            <div class="container">
+                <div class="story-image">AH</div>
+                <h3>My Story: From Worst to First</h3>
+                <p>I used to be the worst at dating, struggling with social anxiety, low self esteem, and a BIG stutterer. I went from that to a decade of dating the prettiest girls out there and helping thousands like you reach their dating goals.</p>
+                <p>And now I'm about to share the exact system that changed everything...</p>
             </div>
-            
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="card-header">
-                        <h3>Curiosity Messages</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Messages that create curiosity instead of compliments</li>
-                            <li>Trigger genuine interest and engagement</li>
-                            <li>Make her want to know more about you</li>
-                            <li>Tested with 94% response rate</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-header">
-                        <h3>Attraction Builders</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Texts that make her think instead of making her cringe</li>
-                            <li>Create romantic interest naturally</li>
-                            <li>Stand out from the dozens she gets daily</li>
-                            <li>Based on proven psychological triggers</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-header">
-                        <h3>Complete System</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Date-securing scripts that smoothly get her to meet up</li>
-                            <li>Recovery messages for when conversations go cold</li>
-                            <li>Texting schedules for maximum impact</li>
-                            <li>Platform-specific adaptations for all apps</li>
-                        </ul>
-                    </div>
+        </section>
+        
+        <section class="section-dark">
+            <div class="container">
+                <h2>The 67 Messages That Turn "Seen" Into "<span class="accent">When Can We Meet?</span>"</h2>
+                <p>I spent 2 years testing thousands of messages with real women across every dating platform. We tracked response rates, analyzed what worked, and ruthlessly eliminated what didn't. The result? 67 specific messages with a <strong>97.4% response rate.</strong></p>
+                <div style="text-align:center;">
+                    <ul class="styled-list">
+                        <li>Never Be Ignored or Friend Zoned</li>
+                        <li>Never Run Out of Things to Say</li>
+                        <li>Build Instant Attraction</li>
+                        <li>Score Dates Effortlessly</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials -->
-    <section id="results" class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Real Results From Real Men</h2>
-                <p>No theories. No gimmicks. Just proven texting strategies that work</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "I used message #23 and she replied in 4 minutes after ignoring me for three days. We're going out Friday."
-                    </div>
-                    <div class="testimonial-author">Marcus, 28</div>
+        <section class="section-medium-gradient">
+            <div class="container">
+                <h2>How It Works:</h2>
+                <div class="step-card">
+                    <div class="icon">💬</div>
+                    <h3>1. Scroll Right to the Text You Need</h3>
+                    <p>Simple to use, scroll easily to the texts you need at that moment.</p>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "Got three dates this week using the curiosity messages. This stuff actually works."
-                    </div>
-                    <div class="testimonial-author">James, 31</div>
+                <div class="step-card">
+                    <div class="icon">📱</div>
+                    <h3>2. Send The Text To Get An Instant Reply</h3>
+                    <p>Copy and paste the exact message that fits your situation.</p>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "She went from barely responding to texting me first every day. Game changer."
-                    </div>
-                    <div class="testimonial-author">David, 26</div>
+                <div class="step-card">
+                    <div class="icon">🥂</div>
+                    <h3>3. Schedule Your Date</h3>
+                    <p>Use the proven scripts to smoothly transition to meeting up.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <section class="section-dark">
+            <div class="container">
+                <h2>What Makes These Messages <span class="accent">Impossible to Ignore</span>:</h2>
+                <div style="text-align:center;">
+                    <ul class="styled-list">
+                        <li><strong>Curiosity Triggers:</strong> Messages that make her brain go "Wait, what does he mean by that?"</li>
+                        <li><strong>Attraction Builders:</strong> Texts that subtly communicate high value without bragging.</li>
+                        <li><strong>Date Closers:</strong> Scripts that smoothly transition to meeting up (no awkward asking).</li>
+                        <li><strong>Recovery Messages:</strong> How to resurrect dead conversations (even after weeks of silence).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-medium-gradient">
+             <div class="container">
+                <h2>Here's Exactly What You Get:</h2>
+                <h3>The Complete Arsenal:</h3>
+                <div style="text-align: center;">
+                    <ul class="styled-list">
+                        <li>67 proven messages that work on any platform</li>
+                        <li>Psychology breakdowns explaining why each message works</li>
+                        <li>Perfect timing strategies (when to send each type)</li>
+                        <li>Platform-specific adaptations for Tinder, Bumble, Instagram, text</li>
+                        <li>Follow-up sequences for maximum impact</li>
+                        <li>Recovery protocols for dead conversations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Your Path To Texting Mastery</h2>
-                <p>Invest in confidence that lasts beyond a single date</p>
+        <section class="section-dark">
+            <div class="container">
+                <h2>Real Results From <span class="accent">Real Guys:</span></h2>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Message #23 got her to reply in 4 minutes after ignoring me for 3 days. We're going out Friday."</p>
+                    <div class="testimonial-author">- Marcus, 28</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Got three dates this week using the curiosity messages. This stuff actually works."</p>
+                    <div class="testimonial-author">- James, 31</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"She went from barely responding to texting me first every day. Game changer."</p>
+                    <div class="testimonial-author">- David, 26</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I was about to give up on dating apps. These messages saved my dating life."</p>
+                    <div class="testimonial-author">- Ryan, 24</div>
+                </div>
             </div>
-            
-            <div class="pricing-container">
+        </section>
+
+        <section class="section-medium-gradient">
+            <div class="container">
+                <h2>EXCLUSIVE BONUSES (Lifetime Access)</h2>
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bonus 1</span>
+                    <p class="bonus-text">LIVE In-depth Texting Breakdowns, Tutorials and Case Studies of My Best Students, That Led to Successful Dates.</p>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bonus 2</span>
+                    <p class="bonus-text">My Full Training "The High Value Man Blueprint"</p>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-tag">Bonus 3</span>
+                    <p class="bonus-text">My Exclusive Training "The 4 Key Steps to Be Successful with Dating in 2024"</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-dark">
+            <div class="container">
+                <h2>Why This Works When <span class="accent">Everything Else Fails</span></h2>
+                <div>
+                    <h3>The Problem With Generic Dating Advice:</h3>
+                    <p>It tells you to "be confident" (useless when you don't know what to say), gives you generic tips every guy already knows, and offers theory instead of proven, field-tested words.</p>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h3>Why These Messages Are Different:</h3>
+                    <p>They are <strong>psychology-based</strong> to trigger specific emotional responses, <strong>field-tested</strong> with real women, <strong>mistake-proof</strong> with exact words to copy, and <strong>results-focused</strong> to get responses and dates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-medium-gradient" id="offer-section">
+            <div class="container">
                 <div class="price-box">
-                    <h3>The Complete Message Collection</h3>
-                    <div class="price-tag">$7</div>
-                    <p>Less than your next coffee, but with lifelong returns</p>
-                    
-                    <div class="price-comparison">
-                        <div class="comparison-item">
-                            <i class="fas fa-times"></i>
-                            <span>A single coffee at Starbucks</span>
-                        </div>
-                        <div class="comparison-item">
-                            <i class="fas fa-times"></i>
-                            <span>One dating app boost</span>
-                        </div>
-                        <div class="comparison-item">
-                            <i class="fas fa-times"></i>
-                            <span>Gas money for a date that never happens</span>
-                        </div>
-                    </div>
-                    
-                    <div class="guarantee-box">
-                        <h3>100% Money-Back Guarantee</h3>
-                        <p>Try these messages for 30 full days. If you don't get better responses, more conversations, and more dates, I'll refund every penny. No questions asked.</p>
-                    </div>
-                    
-                    <button class="cta-button">Get Instant Access Now</button>
+                    <h3>Your Investment</h3>
+                    <div class="price"><s>$24</s> $7 <span style="font-size: 1.5rem; color: var(--text-secondary);">USD</span></div>
+                    <p>That's less than a single coffee, a dating app boost that might not work, or gas money for a date that never happens.</p>
+                    <hr style="border-color: rgba(136, 146, 176, 0.2); margin: 30px 0;">
+                    <h3>For the price of lunch, you get:</h3>
+                    <p style="margin-top: 10px;">The 67 battle-tested messages, complete psychology breakdowns, perfect timing strategies & everything you need to start getting responses TODAY.</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Urgency Section -->
-    <section class="urgency-section">
-        <div class="container urgency-container">
-            <h2>The Clock Is Ticking</h2>
-            <p>What's happening right now while you hesitate:</p>
-            
-            <div class="timer">
-                <div class="timer-box">
-                    <div class="timer-value">24</div>
-                    <div class="timer-label">Hours</div>
-                </div>
-                <div class="timer-box">
-                    <div class="timer-value">59</div>
-                    <div class="timer-label">Minutes</div>
-                </div>
-                <div class="timer-box">
-                    <div class="timer-value">59</div>
-                    <div class="timer-label">Seconds</div>
-                </div>
-            </div>
-            
-            <p><strong>Limited Time:</strong> This offer expires in 24 hours. After that, the price goes back to $47.</p>
-            
-            <div class="choice-cards">
-                <div class="choice-card bad-choice">
-                    <h3>Option 1: Keep Doing What Doesn't Work</h3>
-                    <p>Continue sending the same messages that get ignored. Watch her slip away to men who simply know what to say.</p>
-                    <p>Stay frustrated and emotionally burnt out.</p>
+                <div class="guarantee-box">
+                    <h3>100% Money-Back Guarantee</h3>
+                    <p><strong>My Promise:</strong> Try these messages for 30 full days. If you don't get better responses, more conversations, and more dates, I'll refund every single penny. No questions asked.</p>
+                    <p style="font-size: 0.9rem;">We've had an extremely high satisfaction rate, but you have nothing to lose and everything to gain.</p>
                 </div>
                 
-                <div class="choice-card good-choice">
-                    <h3>Option 2: Text With Confidence</h3>
-                    <p>Get the exact words that actually work. Start building real connections instead of anxiety.</p>
-                    <p>Join thousands of men who transformed their dating lives.</p>
-                    <button class="cta-button" style="margin-top: 20px;">Get The Messages - $7</button>
+                <div class="warning-box">
+                    <h3>⚠️ Limited Time Warning</h3>
+                    <ul style="list-style: none; text-align: center; color: var(--text-primary);">
+                        <li>This offer expires in 24 hours</li>
+                        <li>After that, the price goes back to $47</li>
+                        <li>Don't miss your chance to fix your texting game</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <h2>The Clock Is Ticking</h2>
+                    <p>The woman you're thinking about is probably texting someone else. Someone who knows exactly what to say to keep her interested. Your choice is simple: keep getting ignored or get the exact words that actually work.</p>
+                    <p><strong>Don't let another day pass watching her slip away to men who simply know what to say.</strong></p>
+                    <a href="#offer-section" class="cta-button" style="margin-top:20px;">Get Instant Access - Just $7</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="logo">Text<span>Mastery</span></div>
-            <p>The premium solution for men ready to level up their dating life</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
-                <a href="#">Support</a>
+        <section class="section-dark">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <p class="question">"How do I access the program?"</p>
+                        <p class="answer">As soon as you sign up you'll get an email with step by step instructions. Inside the email is a link to access your purchase. You can access your purchase any time of day and on any device (with an internet connection).</p>
+                    </div>
+                    <div class="faq-item">
+                        <p class="question">"Is this suitable for beginners?"</p>
+                        <p class="answer">Absolutely! The program starts with the fundamentals of texting, then moves on to more advanced strategies, techniques, and breakdowns. There's something to be learned here for everyone!</p>
+                    </div>
+                     <div class="faq-item">
+                        <p class="question">"What if there's free information on YouTube?"</p>
+                        <p class="answer">I get it—there's tons of free info out there, and I spent hundreds of hours on YouTube myself, but I still wish I'd had something like this to bypass all that wasted time searching for answers. If you're ready to take action now instead of endlessly consuming free content, this is for you (and honestly, for just $7, it's a no-brainer).</p>
+                    </div>
+                </div>
             </div>
-            <p>&copy; 2023 TextMastery. All rights reserved.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="final-pitch">We turned the guesswork of texting into practical step-by-step instructions that are proven to work.</p>
+            <h2 style="font-size: 2.5rem; font-family: var(--font-body); font-weight: 700;">Stop being forgettable.<br>Start being <span class="accent">irresistible.</span></h2>
         </div>
     </footer>
-
-
-
-
-
-    <div id="info-icon">i</div>
-    <div id="info-panel">
-        <h2>About This Page</h2>
-        <p><strong>Intended User:</strong> This page is designed for men seeking to improve their texting communication in dating scenarios.</p>
-        <p><strong>Purpose of Copy:</strong> The copy aims to highlight common texting frustrations, present a solution (psychology-backed text messages), and drive conversions by offering a compelling value proposition and a sense of urgency.</p>
-        <a href="ari hardeen.html" class="view-original-btn" target="_blank">View Original File</a>
-    </div>
-
-    <script>
-        const infoIcon = document.getElementById('info-icon');
-        const infoPanel = document.getElementById('info-panel');
-
-        infoIcon.addEventListener('click', () => {
-            infoPanel.classList.toggle('show');
-        });
-
-        // Timer countdown
-        function updateTimer() {
-            const timerValue = document.querySelectorAll('.timer-value');
-            let hours = parseInt(timerValue[0].textContent);
-            let minutes = parseInt(timerValue[1].textContent);
-            let seconds = parseInt(timerValue[2].textContent);
-            
-            seconds--;
-            
-            if (seconds < 0) {
-                seconds = 59;
-                minutes--;
-                
-                if (minutes < 0) {
-                    minutes = 59;
-                    hours--;
-                    
-                    if (hours < 0) {
-                        hours = 0;
-                        minutes = 0;
-                        seconds = 0;
-                    }
-                }
-            }
-            
-            timerValue[0].textContent = hours.toString().padStart(2, '0');
-            timerValue[1].textContent = minutes.toString().padStart(2, '0');
-            timerValue[2].textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateTimer, 1000);
-        
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Button hover effects
-        const buttons = document.querySelectorAll('.cta-button');
-        buttons.forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-                this.style.boxShadow = '0 7px 20px rgba(192, 160, 128, 0.4)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 4px 15px rgba(192, 160, 128, 0.3)';
-            });
-        });
-    </script>
+    
 </body>
-</html>
+</html>```
