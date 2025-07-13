@@ -1,1 +1,1 @@
-feat: update samples and link new page
+feat: add floating info icon to sample pages

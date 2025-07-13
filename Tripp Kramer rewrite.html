@@ -798,6 +798,76 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Info Button */
+        .info-fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .info-fab:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        /* Info Modal */
+        .info-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(10, 10, 13, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        .info-modal-content {
+            background-color: var(--card-bg);
+            margin: 15% auto;
+            padding: 30px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .info-modal-content h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .info-modal-content p {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .close-modal {
+            color: var(--text-muted);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-modal:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -1139,5 +1209,36 @@
             <p>© 2023 Tripp Kramer. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Info Button and Modal -->
+    <div class="info-fab" onclick="openModal()">i</div>
+
+    <div id="infoModal" class="info-modal">
+        <div class="info-modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Copy Insights</h3>
+            <p><strong>Goal:</strong> To get high-value men to book a free breakthrough session.</p>
+            <p><strong>Target Audience:</strong> Men aged 28-45 who are successful in their careers but struggle with dating and are looking for a serious, long-term solution.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('infoModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    
 </body>
 </html>
